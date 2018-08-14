@@ -1,0 +1,53 @@
+page-edit-profile {
+  .editProfile {
+    // padding: 5px 25px;
+    justify-content: center;
+    align-items: flex-end;
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+  }
+  .grid {
+    padding: 25px 20px 5px;
+    .searchbar {
+      background-color: transparent;
+      padding: 0px;
+      margin-bottom: 30px !important;
+      .searchbar-search-icon {
+        left: 0px;
+        background-size: 16px;
+      }
+      .searchbar-input {
+        padding-right: 0px;
+        padding-left: 20px;
+      }
+    }
+  }
+  .item {
+    .text-input-md {
+      margin-top: 14px;
+    }
+    .label {
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+  ion-textarea {
+    border: 1px solid #f0f0f0;
+    textarea {
+      min-height: 100px;
+    }
+  }
+  .saveBtn {
+    align-items: center;
+    justify-content: center;
+    button {
+      width: 50%;
+      height: 40px !important;
+    }
+  }
+}

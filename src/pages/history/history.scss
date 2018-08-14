@@ -1,0 +1,53 @@
+page-history {
+    .scroll-content{
+        padding: 10px 0px 0px !important;
+        background-color: #ececec;
+    }
+    .historyDetail{
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        
+         button{
+            height: 18px;
+            font-size: 13px;
+            margin:5px;
+         }
+    }
+
+    .project-container-box {
+        position: relative;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        .project-container-status {
+          position: absolute;
+          right: 10px;
+          top: 0;
+        }
+    }
+
+    ion-header{
+        .grid{
+            background: #f8f8f8;
+            padding: 5px 16px;
+            .segment-button:first-of-type {
+                border-radius: 12px 0 0 12px !important;
+            } 
+        
+             .segment-button:last-of-type {
+                border-radius: 0 12px 12px 0 !important;
+            }
+        }
+    }
+
+    .center-button {
+        display: flex;
+        justify-content: center;
+
+        button{
+            margin: 0px;
+            height: 30px;
+        }
+    }
+    
+}

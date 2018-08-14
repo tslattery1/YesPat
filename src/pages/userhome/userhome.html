@@ -1,0 +1,82 @@
+<ion-header>
+
+  <ion-navbar hide-back-button>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      <button ion-button clear (click)="openFindSpot()">
+        <img src="assets/images/car.png" alt="">
+      </button>
+      
+      <div class="verline">
+      </div>
+
+      <button ion-button clear>
+        <img src="assets/images/restarant.png" alt="">
+      </button>
+    </ion-title>
+
+    <!-- <ion-buttons end>
+        <ion-badge color="dark">
+          <p>{{notifCount}}</p>
+        </ion-badge>
+        <button ion-button icon-only (click)="gotoNotificationPage()">
+          <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+        </button>
+      </ion-buttons> -->
+
+      <!-- <ion-buttons end>
+        <button ion-button icon-only (click)="nextPage()" [disabled]="!nextKey">
+          <ion-icon ios="ios-fastforward" md="md-fastforward"></ion-icon>
+        </button>
+      </ion-buttons> -->
+      
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ng-template [ngIf]="businessList.length">
+  <ion-grid *ngFor="let item of businessList" (click)="openBusiness(item)">
+    <ion-item>
+      <ion-avatar item-start style="margin: 8px 16px 8px 8px;">
+        <img [src]="item.bussinessImages[0]" alt="">
+      </ion-avatar>
+      <h4>{{item.bussinessName}}</h4>
+      <p>{{item.address}}</p>
+    </ion-item>
+  </ion-grid>
+  </ng-template>
+
+  <ng-template [ngIf]="!businessList.length">
+    <ion-grid>
+      <ion-row>
+      <img src="assets/images/2.png" alt="">
+      <h4>The list seems to be empty</h4>	
+      <p>No business in your surroundings..</p>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+
+  <!-- <ion-grid>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/images/coffee5.jpg" alt="">
+      </ion-avatar>
+      <h4>Panda Express</h4>
+      <p>Phonix Markercity, California</p>
+    </ion-item>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/images/coffee3.jpg" alt="">
+      </ion-avatar>
+      <h4>Panda Express</h4>
+      <p>Phonix Markercity, California</p>
+    </ion-item>
+  </ion-grid> -->
+</ion-content>

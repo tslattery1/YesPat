@@ -1,0 +1,21 @@
+<ion-header>
+		<ion-navbar>
+			<ion-title>
+			QR Code
+			</ion-title>
+		</ion-navbar>
+	</ion-header>
+	
+	<ion-content padding>
+		<ion-card *ngIf="createdQrCode">
+			<div style="padding: 20px;">
+				<ion-card-header style="text-align: center; font-size: 2rem;">
+						To pay <span style="color: #f53d3d">{{userInfo?.bussinessName}}</span>
+				</ion-card-header>
+				<ion-card-content style="text-align: center; font-size: 1.6rem;">
+						scan below QR code
+				</ion-card-content>
+			</div>
+				<img src="https://chart.googleapis.com/chart?cht=qr&chl={{createdQrCode}}&chs=160x160&chld=L|0"/>
+		</ion-card>
+	</ion-content>	

@@ -1,0 +1,30 @@
+page-location {
+	.header{
+		ion-buttons{
+			button{
+				img{
+					height: 3rem;
+					width: 3rem;
+				}
+			}
+		}
+
+		.title{
+			padding: 0 50px 1px 10px;
+
+			.toolbar-title{
+				font-size: 1.2rem;
+				text-align: left;
+				text-transform: initial;
+			}
+		}
+	}
+
+	.scroll-content{
+		padding: 0 !important;
+
+		#map{
+			height: 100%;
+		}
+	}
+}	

@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Parking List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card *ngFor="let spot of spots; let i = index">
+    <ng-template [ngIf]="spot.publisherDetails && spot.publisherDetails.uid != uid">
+      <ion-card-header>
+        {{spot.publisherDetails.name}}
+      </ion-card-header>
+      <p style="padding-left: 10px">
+        <span>{{spot.publisherDetails.phoneNumber}}</span>
+      </p>
+
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3>
+              <p>
+                <b>Car</b>
+              </p>
+            </ion-col>
+            <ion-col col-9>
+              <p>{{spot.carInfo}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-3>
+              <p>
+                <b>Parked at</b>
+              </p>
+            </ion-col>
+            <ion-col col-9>
+              <p style="text-overflow:initial; word-wrap:initial">
+                <a (click)="navigateLocation(spot.parkLocation)">{{spot.parkLocation}}</a>
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-3>
+              <p>
+                <b>Date</b>
+              </p>
+            </ion-col>
+            <ion-col col-9>
+              <p>{{spot.date | date}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <!-- <ion-col col-6>
+              <ion-col style="display:flex">
+                <p>
+                  <b>From</b> {{spot.starttime}}</p>
+              </ion-col>
+
+              <ion-col style="display:flex">
+                <p>
+                  <b>To</b> {{spot.endtime}}</p>
+              </ion-col>
+            </ion-col>
+            <ion-col col-6 class="requestBtn">
+              <button ion-button round (click)="requestSpot(spot,i)">REQUEST</button>
+            </ion-col> -->
+
+
+            <ion-col style="padding-left: 0px;">
+              <ion-row>
+                <ion-col>
+                  <p>
+                    <b>From</b>
+                  </p>
+                </ion-col>
+                <ion-col>
+                  <p>{{spot.starttime}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p>
+                    <b>To</b>
+                  </p>
+                </ion-col>
+                <ion-col>
+                  <p>{{spot.endtime}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col class="requestBtn">
+                <button ion-button round (click)="requestSpot(spot,i)">REQUEST</button>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-card-content>
+    </ng-template>
+  </ion-card>
+
+  <p style="text-align:center" *ngIf="spots.length == 0">Hey there! You don't have any parking spots near by!</p>
+
+</ion-content>

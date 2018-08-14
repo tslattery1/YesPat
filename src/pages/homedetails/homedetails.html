@@ -1,0 +1,102 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{userData ? userData.bussinessName : 'homedetails'}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-slides pager="true" *ngIf="slideData">
+        <ion-slide *ngFor="let image of slideData;">
+          <img src="assets/images/overlay.png" alt="" class="overlay">
+    
+          <img [src]="image" alt="">
+          <div class="card-subtitle">{{userData.address}}</div>
+        </ion-slide>
+    </ion-slides>
+
+  <ion-grid class="details">
+    <ion-row>
+      <ion-col>
+        <h4>Call</h4>
+        <h6><a [href]="callPhoneNumber">{{userData.phoneNumber}}</a></h6>
+      </ion-col>
+      <ion-col col-6>
+        <h4>Alternate Call</h4>
+        <h6><a [href]="callAlternateNumbare">{{userData.alternateNumber}}</a></h6>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h4>Type</h4>
+        <h6>{{userData.bussinessType}}</h6>
+      </ion-col>
+      <ion-col col-6>
+          <h4>Website</h4>
+          <h6>{{userData.website}}</h6>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col>
+          <h4>Email</h4>
+          <h6><a [href]="mailToEmail">{{userData.email}}</a></h6>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid class="menulist">
+        
+            <h4>Menu</h4>
+        
+            <table>
+              <tr>
+                <th>Name of item</th>
+                <th>Price</th>
+                <th>Points</th>
+                <th></th>
+              </tr>
+              <ng-template [ngIf]="menuItem && menuItem.length">
+              <tr *ngFor="let menu of menuItem; let i = index">
+                <td>{{menu.itemName}} <span style="
+                  background-color: #54bc15;
+                  padding: 3px 11px;
+                  border-radius: 50px;
+                  font-size: 10px;
+                  /* float: right; */
+                  margin-left: 3px;
+                  color: #fff;
+                " *ngIf="menu.recent"> New</span></td>
+                <td>$ {{menu.price}}</td>
+                <td class="points">{{menu.points}}</td>
+                <td>
+                    <button ion-button color='secondary' round (click)="scanQrCode(menu)" [disabled]="points < menu.points"> <!-- color='redeem'--> 
+                        Redeem
+                    </button>
+                </td>
+              </tr>
+              </ng-template>
+              <!-- <tr>
+                <td>Cappuccino Lois</td>
+                <td>$120</td>
+                <td class="points">150</td>
+                <td>
+                  <button ion-button color='lightdark' round>
+                      Delete
+                      </button>
+                </td>
+              </tr> -->
+            </table>
+          <!-- <div *ngIf="!menuItem.length"> Menu seems to be empty for now. It will be visible as soon as user add menu.</div> -->
+
+          <ion-row *ngIf="!menuItem.length">
+              <img src="assets/images/empty.png" alt="">
+              <h4>This menu list is empty</h4>	
+              <p>Will be visible as soon as user add menu.</p>
+          </ion-row>
+  </ion-grid>
+</ion-content>

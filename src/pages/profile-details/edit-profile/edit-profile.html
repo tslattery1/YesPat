@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Update Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+  <form #editProfile="ngForm" [formGroup]="editForm" (ngSubmit)="onSubmit(editProfile)">
+    <ion-grid *ngIf="userDetails">
+
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label stacked>Name</ion-label>
+          <ion-input type="text" placeholder="Name" name="name" formControlName="name" [(ngModel)]="userDetails.name" required></ion-input>
+        </ion-item>
+
+        <div *ngIf="!editForm.controls.name.valid && (editForm.controls.name.dirty || editForm.controls.name.touched)" class="error">
+          <div [hidden]="!editForm.controls.name.errors.required">
+            *Name is required.
+          </div>
+          <div [hidden]="!editForm.controls.name.errors.pattern">
+            *Invalid Name format.
+          </div>
+        </div>
+
+        <!-- <ion-item >
+          <ion-label stacked>Email</ion-label>
+          <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="userDetails.email" required></ion-input>
+        </ion-item> -->
+
+        <ion-item>
+          <ion-label stacked>Contact no.</ion-label>
+          <ion-input type="number" placeholder="Contact" name="phoneNumber" formControlName="phoneNumber" [(ngModel)]="userDetails.phoneNumber"
+            required></ion-input>
+        </ion-item>
+
+        <div *ngIf="!editForm.controls.phoneNumber.valid && (editForm.controls.phoneNumber.dirty || editForm.controls.phoneNumber.touched)"
+          class="error">
+          <div [hidden]="!editForm.controls.phoneNumber.errors.required">
+            *Phone number is required.
+          </div>
+          <div [hidden]="!editForm.controls.phoneNumber.errors.pattern">
+            *10 digits are allowed.
+          </div>
+        </div>
+
+
+        <ion-label stacked>Address</ion-label>
+        <!-- <ion-input name="address" name="address" [(ngModel)]="userDetails.address" formControlName="address" (ngModelChange)="updateSearch()"
+            required></ion-input> -->
+        <ion-searchbar required name="address" [(ngModel)]="userDetails.address" formControlName="address" (ionInput)="updateSearch()"
+          (ionCancel)="dismiss()" placeholder="Start typing and select ...">
+        </ion-searchbar>
+        <ion-list [hidden]="dontShowPredictions">
+          <ion-item *ngFor="let item of autocompleteItems" (click)="chooseItem(item)">
+            {{ item.description }}
+          </ion-item>
+        </ion-list>
+      </ion-list>
+    </ion-grid>
+
+    <ion-row class="saveBtn">
+      <button ion-button round block margin-top color="secondary" [disabled]="!editProfile.valid">SAVE</button>
+    </ion-row>
+  </form>
+
+
+</ion-content>

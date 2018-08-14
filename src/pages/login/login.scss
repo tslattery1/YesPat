@@ -1,0 +1,46 @@
+page-login {
+    .mainHeader{
+        height: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+
+        img{
+            width: 110px;
+            height: auto;
+        }
+
+        h1{
+            font-size: 18px;
+            color: #a29d9d;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+    }
+
+    .loginForm{
+        padding:0px 25px 0px;
+        ion-list{
+            margin-bottom: 10px;
+        }
+
+        a{
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .button{
+            margin-top: 30px !important;
+        }
+        
+     }
+
+     .signUp{
+         padding:20px 25px 0px;
+
+         p{
+            color: rgba(35, 31, 32, 0.66);
+         }
+     }
+}

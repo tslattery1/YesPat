@@ -1,0 +1,61 @@
+{
+  "_from": "cordova-plugin-brightness",
+  "_id": "cordova-plugin-brightness@0.1.5",
+  "_inBundle": false,
+  "_integrity": "sha1-zmOQaYifyEPCQ+gvIed4mITt6bo=",
+  "_location": "/cordova-plugin-brightness",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-brightness",
+    "name": "cordova-plugin-brightness",
+    "escapedName": "cordova-plugin-brightness",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-brightness/-/cordova-plugin-brightness-0.1.5.tgz",
+  "_shasum": "ce639069889fc843c243e82f21e7789884ede9ba",
+  "_spec": "cordova-plugin-brightness",
+  "_where": "/Users/ewebcoremac1/Desktop/Mayur/WorkingYespat/YesPatWorking",
+  "author": {
+    "name": "Evgeniy Lukovsky"
+  },
+  "bugs": {
+    "url": "https://github.com/mgcrea/cordova-plugin-brightness/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-brightness",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Brightness Control Plugin",
+  "engines": [
+    {
+      "name": "cordova-ios",
+      "version": ">=3.6.0"
+    }
+  ],
+  "homepage": "https://github.com/mgcrea/cordova-plugin-brightness#readme",
+  "keywords": [
+    "cordova",
+    "unity",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-brightness",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgcrea/cordova-plugin-brightness.git"
+  },
+  "version": "0.1.5"
+}

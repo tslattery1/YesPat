@@ -1,0 +1,87 @@
+page-post-findspot {
+    .header{
+        .bar-buttons{
+                display: flex;
+                justify-content: flex-end;
+            .badge{
+                z-index: 100;
+                position: fixed;
+                font-size: 10px;
+                padding: 3px 5px;
+            }
+        }
+
+        .title{
+            .toolbar-title{
+                display: flex;
+                justify-content: center;
+            }
+            button{
+                height: 3rem;
+                img{
+                    width: 2.8rem;
+                }
+            }
+
+            .verline{
+                width: 1px;
+                height: 3rem;
+                margin: auto 0;
+                background: #b7b7b7;
+            }
+        }
+    }
+
+    .segment-button:first-of-type {
+        border-radius: 12px 0 0 12px !important;
+    } 
+
+     .segment-button:last-of-type {
+        border-radius: 0 12px 12px 0 !important;
+    }
+
+    .grid{
+        padding: 25px 20px 5px;
+
+        .searchbar{
+            background-color: transparent;
+            padding: 0px;
+            margin-bottom: 30px !important;
+            .searchbar-search-icon{
+                left: 0px;
+                background-size: 16px;
+            }
+            .searchbar-input{
+                padding-right: 0px;    
+                padding-left: 20px;
+            }
+        }
+        .item{
+            margin-bottom: 30px !important;
+
+            .text-input{
+                margin-top:5px;
+            }
+
+            
+        }
+        .label{
+            margin: 0px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: rgba(0, 0, 0, 0.7);
+        }
+        .row{
+            display: flex;
+            justify-content: center;
+
+            button{
+                margin: 0px;
+                height: 35px;
+            }
+        }
+    }
+   
+  
+}

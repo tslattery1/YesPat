@@ -1,0 +1,105 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com-badrit-base64": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "com.synconset.imagepicker": {
+      "PHOTO_LIBRARY_USAGE_DESCRIPTION": "for bussiness",
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-brightness": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-camera": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-geolocation": {
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-googlemaps": {
+      "API_KEY_FOR_IOS": "YOUR_IOS_API_KEY_IS_HERE",
+      "LOCATION_WHEN_IN_USE_DESCRIPTION": "Show your location on the map",
+      "LOCATION_ALWAYS_USAGE_DESCRIPTION": "Trace your location on the map",
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-market": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    }
+  },
+  "dependent_plugins": {
+    "com.googlemaps.ios": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.digitalexperts.yaspat"
+    }
+  }
+}

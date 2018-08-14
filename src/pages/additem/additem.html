@@ -1,0 +1,64 @@
+<ion-content>
+  <div class="centeralign">
+    <form [formGroup]="menuItemForm" novalidate>
+      <ion-grid>
+        <ion-item>
+          <img src="assets/images/itemImg.png" alt="" item-left id='itemImg'>
+          <ion-input type="text" placeholder="Name of item" formControlName="itemName"></ion-input>
+        </ion-item>
+
+        <div *ngIf="!menuItemForm.controls.itemName.valid && (menuItemForm.controls.itemName.dirty || menuItemForm.controls.itemName.touched)"
+          class="error">
+          <div [hidden]="!menuItemForm.controls.itemName.errors.required">
+            *Name of item is required.
+          </div>
+          <div [hidden]="!menuItemForm.controls.itemName.errors.pattern">
+            *Invalid format.
+          </div>
+        </div>
+
+        <ion-item>
+          <img src="assets/images/price.png" alt="" item-left>
+          <ion-input type="number" placeholder="Actual Price" formControlName="price"></ion-input>
+        </ion-item>
+
+        <div *ngIf="!menuItemForm.controls.price.valid && (menuItemForm.controls.price.dirty || menuItemForm.controls.price.touched)"
+          class="error">
+          <div [hidden]="!menuItemForm.controls.price.errors.required">
+            *Actual Price is required.
+          </div>
+        </div>
+
+        <ion-item>
+          <img src="assets/images/points.png" alt="" item-left>
+          <ion-input type="number" placeholder="Points" formControlName="points"></ion-input>
+        </ion-item>
+
+        <div *ngIf="!menuItemForm.controls.points.valid && (menuItemForm.controls.points.dirty || menuItemForm.controls.points.touched)"
+          class="error">
+          <div [hidden]="!menuItemForm.controls.points.errors.required">
+            *Points is required.
+          </div>
+        </div>
+
+      </ion-grid>
+    </form>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button round color='cancel' (click)="closeModal()">
+            CANCEL
+          </button>
+        </ion-col>
+
+
+        <ion-col col-6>
+          <button ion-button round (click)="addMenuItem()">
+            ADD
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-menu [content]="nav">
+    <ion-header>
+        <ion-toolbar *ngIf="name">
+            <ion-title>{{name}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+        <ion-grid class="menuButton">
+            <ion-row>
+                <ion-col  offset-4>
+                    <ion-list no-lines>
+
+                    <ion-item *ngIf="role === 'bussinesssUser'"> 
+                       <button ion-button clear (click)="goToMyBusiness()">
+                            My Business
+                        </button>
+                    </ion-item>    
+                        
+                    <ion-item> 
+                        <button ion-button clear (click)="goEditProfile()">
+                        Profile
+                        </button>
+                    </ion-item>
+
+                    <ion-item *ngIf="role === 'bussinesssUser'"> 
+                        <button ion-button clear (click)="goToEditBusiness()">
+                        Edit Business
+                        </button>
+                    </ion-item>
+
+                    <ion-item *ngIf="role !== 'bussinesssUser'"> 
+                        <button ion-button clear (click)="goPostaspot()">
+                        Post a Spot
+                        </button>
+                    </ion-item>
+
+                    <ion-item *ngIf="role !== 'bussinesssUser'"> 
+                        <button ion-button clear (click)="goHistoryPage()">
+                        My Spot
+                        </button>
+                    </ion-item>
+
+                    <ion-item> 
+                        <button ion-button clear (click)="referFriend()">
+                        Refer A Friend
+                        </button>
+                    </ion-item>
+
+                    <ion-item> 
+                        <button ion-button clear (click)="onLogout()">
+                        Log Out
+                        </button>
+                    </ion-item>             
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage"  #nav></ion-nav>

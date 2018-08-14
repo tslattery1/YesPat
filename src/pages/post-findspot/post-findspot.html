@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-navbar hide-back-button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <button ion-button clear>
+        <img src="assets/images/car-active.png" alt="">
+      </button>
+
+      <div class="verline">
+      </div>
+
+      <button ion-button clear (click)="openBusiness()">
+        <img src="assets/images/food-deactive.png" alt="">
+      </button>
+    </ion-title>
+    <ion-buttons end>
+      <ion-badge color="dark">
+        <p>{{notifCount}}</p>
+      </ion-badge>
+      <button ion-button icon-only (click)="gotoNotificationPage()">
+        <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-segment [(ngModel)]="postfindSpot" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="findaspot">
+      Find a Spot
+    </ion-segment-button>
+    <ion-segment-button value="postaspot">
+      Post a Spot
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="postfindSpot">
+    <!--Find A Spot-->
+    <ion-grid class="findForm" *ngSwitchCase="'findaspot'">
+      <form [formGroup]="findForm" (ngSubmit)="findFormSubmit(findForm)">
+        <ion-list no-lines>
+
+          <ion-label stacked>Current Location</ion-label>
+          <!-- <ion-input type="text" placeholder="Enter your current location" formControlName="currentLocation" [(ngModel)]="currentAutocomplete.query"
+            required></ion-input> -->
+          <ion-searchbar required formControlName="currentLocation" [(ngModel)]="currentAutocomplete.query" (ionInput)="updateCurrentSearch()" (ionCancel)="currentdismiss()"
+            placeholder="Start typing and select ...">
+          </ion-searchbar>
+          <ion-list [hidden]="dontShowCurrentPredictions">
+            <ion-item *ngFor="let item of autocompleteItems" (click)="chooseCurrentItem(item)">
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+
+
+
+          <ion-label stacked>Desired Location</ion-label>
+          <!-- <ion-input type="text" placeholder="Enter your desired location" name="desiredLocation" ngModel required></ion-input>-->
+          <ion-searchbar required formControlName="parkLocation" [(ngModel)]="autocomplete.query" (ionInput)="updateSearch()" (ionCancel)="dismiss()"
+            placeholder="Start typing and select ...">
+          </ion-searchbar>
+          <ion-list [hidden]="dontShowPredictions">
+            <ion-item *ngFor="let item of autocompleteItems" (click)="chooseItem(item)">
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+
+
+          <ion-item>
+            <ion-label stacked>Desired Time</ion-label>
+            <ion-datetime displayFormat="h mm A" pickerFormat="h mm A" formControlName="desiredtime" placeholder="Enter your desired time"
+              ngModel required></ion-datetime>
+          </ion-item>
+
+        </ion-list>
+
+        <ion-row>
+          <button ion-button round margin-top [disabled]="!findForm.valid" color="secondary">SEARCH</button>
+        </ion-row>
+      </form>
+    </ion-grid>
+    <!--Find A Spot-->
+    <!--Post A Spot-->
+    <ion-grid *ngSwitchCase="'postaspot'">
+      <form [formGroup]="postForm" (ngSubmit)="postFormSubmit(postForm)">
+        <ion-list no-lines>
+          <ion-item>
+            <ion-label stacked>Car Info.</ion-label>
+            <ion-input ngValid="!postForm.hasError('whitespace')" type="text" placeholder="Car Name and Color" formControlName="carInfo"
+              required></ion-input>
+          </ion-item>
+
+
+          <ion-label stacked>Parked Location</ion-label>
+          <!--<ion-input type="text" placeholder="Enter your parking location" name="parkLocation" ngModel required></ion-input>-->
+          <ion-searchbar required ngValid="!postForm.hasError('whitespace')" formControlName="parkLocation" [(ngModel)]="autocomplete.query"
+            (ionInput)="updateSearch()" (ionCancel)="dismiss()" placeholder="Start typing and select ...">
+          </ion-searchbar>
+          <ion-list [hidden]="dontShowPredictions">
+            <ion-item *ngFor="let item of autocompleteItems" (click)="chooseItem(item)">
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+
+
+          <ion-item>
+            <ion-label stacked>Start Time</ion-label>
+            <ion-datetime displayFormat="h mm A" pickerFormat="h mm A" formControlName="starttime" placeholder="Enter your start time"
+              [(ngModel)]="starttime" required></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label stacked>End Time</ion-label>
+            <ion-datetime displayFormat="h mm A" pickerFormat="h mm A" formControlName="endtime" placeholder="Enter your end time" [(ngModel)]="endtime"
+              required></ion-datetime>
+          </ion-item>
+
+        </ion-list>
+
+        <ion-row>
+          <button ion-button round margin-top [disabled]="!postForm.valid" color="secondary">PUBLISH</button>
+        </ion-row>
+      </form>
+    </ion-grid>
+    <!--Post A Spot-->
+  </div>
+</ion-content>

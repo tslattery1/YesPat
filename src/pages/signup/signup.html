@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid class="signUpHeader">
+    <h1>SIGN UP</h1>
+  </ion-grid>
+
+  <ion-grid class="signUpForm">
+
+    <form [formGroup]="signupForm" novalidate>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-icon ios="ios-person" md="md-person" item-left></ion-icon>
+          <ion-input type="text" placeholder="Name" formControlName="name"></ion-input>
+        </ion-item>
+        <div *ngIf="!signupForm.controls.name.valid && (signupForm.controls.name.dirty ||signupForm.controls.name.touched)" class="error">
+          <div [hidden]="!signupForm.controls.name.errors.required">
+            *Name is required.
+          </div>
+          <div [hidden]="!signupForm.controls.name.errors.pattern">
+            *Invalid Name format.
+          </div>
+        </div>
+        <!-- <ion-item>
+          <ion-icon ios="ios-person" md="md-person" item-left></ion-icon>
+          <ion-input type="text" placeholder="Username" formControlName="username" required></ion-input>
+        </ion-item>
+        <div *ngIf="!signupForm.controls.username.valid && (signupForm.controls.username.dirty ||signupForm.controls.username.touched)"
+          class="error">
+          <div [hidden]="!signupForm.controls.username.errors.required">
+            *Username is required.
+          </div>
+        </div> -->
+
+        <ion-item>
+          <ion-icon ios="ios-phone-portrait" md="md-phone-portrait" item-left></ion-icon>
+          <ion-input type="number" placeholder="Phone Number" formControlName="phoneNumber" required></ion-input>
+        </ion-item>
+        <div *ngIf="!signupForm.controls.phoneNumber.valid && (signupForm.controls.phoneNumber.dirty || signupForm.controls.phoneNumber.touched)"
+          class="error">
+          <div [hidden]="!signupForm.controls.phoneNumber.errors.required">
+            *Phone number is required.
+          </div>
+          <div [hidden]="!signupForm.controls.phoneNumber.errors.pattern">
+            *10 digits are allowed.
+          </div>
+        </div>
+
+        <ion-item>
+          <ion-icon ios="ios-mail" md="md-mail" item-left></ion-icon>
+          <ion-input type="email" placeholder="Email Address" formControlName="email" required></ion-input>
+        </ion-item>
+        <div *ngIf="!signupForm.controls.email.valid && (signupForm.controls.email.dirty ||signupForm.controls.email.touched)" class="error">
+          <div [hidden]="!signupForm.controls.email.errors.required">
+            *Email is required.
+          </div>
+          <div [hidden]="!signupForm.controls.email.errors.pattern">
+            *Email is not valid.
+          </div>
+        </div>
+
+        <ion-item>
+          <ion-icon ios="ios-lock" md="md-lock" item-left></ion-icon>
+          <ion-input type="password" placeholder="Password" formControlName="password" required></ion-input>
+        </ion-item>
+        <div *ngIf="!signupForm.controls.password.valid && (signupForm.controls.password.dirty || signupForm.controls.password.touched)"
+          class="error">
+          <div [hidden]="!signupForm.controls.password.errors.required">
+            *password is required.
+          </div>
+          <div [hidden]="!signupForm.controls.password.errors.minLength">
+            *Password must be 8 characters long.
+          </div>
+        </div>
+
+
+        <ion-item>
+          <ion-icon ios="ios-lock" md="md-lock" item-left></ion-icon>
+          <ion-input type="password" placeholder="Confirm Password" formControlName="confirmpass" required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <button *ngIf="!hideSignUpButton" type="button" (click)="userSubmit()" ion-button round block margin-top [disabled]="!signupForm.valid">SIGN UP AS USER</button>
+      <button type="button" (click)="bussinessSubmit()" ion-button round block margin-top color="dark" [disabled]="!signupForm.valid">SIGN UP AS BUSINESS</button>
+    </form>
+
+  </ion-grid>
+</ion-content>

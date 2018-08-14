@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-title>Notifications</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let requester of requestingUserData;let i = index">
+    <ion-card-header>
+      {{requester.name}}
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <p><strong>Desired Location</strong></p>
+          </ion-col>
+          <ion-col>
+            <p>{{requester.requestLocation}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <p><strong>Desired Date</strong></p>
+          </ion-col>
+          <ion-col>
+            <p>{{requester.requestedDate | date}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <p><strong>Desired Time</strong></p>
+          </ion-col>
+          <ion-col>
+            <p>{{requester.requestedTime}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <button (click)="rejectRequest(requester,i)" ion-button round>REJECT</button>
+
+            <button (click)="acceptRequest(requester,i)" ion-button round color="secondary">ACCEPT</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </ion-card-content>
+
+  </ion-card>
+  <p style="text-align:center" *ngIf="requestingUserData.length == 0">Hey there! You don't have any requesters yet!</p>
+
+</ion-content>

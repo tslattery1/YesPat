@@ -1,0 +1,16 @@
+page-parking-list {
+    .scroll-content{
+        padding: 10px 0px 0px !important;
+        background-color: #ececec;
+    }
+    .requestBtn{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+         .button-round{
+            height: 30px;
+            font-size: 12px;
+        }
+    }
+}

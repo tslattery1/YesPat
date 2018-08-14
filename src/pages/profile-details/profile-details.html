@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar hide-back-button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile Details</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid *ngIf="userDetails">
+      
+      <ion-row *ngIf="userDetails.user_role !== 'bussinesssUser'">
+        <ion-col col-4>Points</ion-col>
+        <ion-col>{{userDetails.points}}</ion-col>
+      </ion-row>
+
+    <ion-row>
+      <ion-col col-4>Name</ion-col>
+      <ion-col>{{userDetails.name}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>Email</ion-col>
+      <ion-col>{{userDetails.email}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>Contact no.</ion-col>
+      <ion-col>{{userDetails.phoneNumber}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>Address</ion-col>
+      <ion-col>{{userDetails.address}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row>
+    <ion-item margin-top *ngIf="renewalDate">
+      <h4>Subscription Renewal Date</h4>
+      <p>{{renewalDate?.day}}/{{renewalDate?.month}}/{{renewalDate?.year}}</p>
+
+
+      <a item-end (click)="unSubscribe()">
+            <img SRC="https://www.paypalobjects.com/en_US/i/btn/btn_unsubscribe_LG.gif" BORDER="0">
+          </a>
+    </ion-item>
+  </ion-row>
+
+  <ion-row>
+    <ion-item margin-top>
+      <h4>Subscription Status</h4>
+      <p>{{subscriptionStatus}}</p>
+    </ion-item>
+  </ion-row>
+
+  <ion-row class="editBtn">
+    <button ion-button round small (click)="gotoEditProfilePage()">Edit Profile</button>
+  </ion-row>
+
+
+</ion-content>

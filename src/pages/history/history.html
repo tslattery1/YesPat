@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-navbar hide-back-button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Spot</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button (click)="toggleHistory()">
+         <ion-icon  name="switch"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+  </ion-navbar>
+
+  <ion-grid>
+    <ion-segment [(ngModel)]="history">
+      <ion-segment-button value="spot">
+        Published History
+      </ion-segment-button>
+      <ion-segment-button value="request">
+        Request History
+      </ion-segment-button>
+    </ion-segment>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content [ngSwitch]="history">
+  <ion-list  *ngSwitchCase="'spot'">
+    <p style="text-align: center" [hidden]="spotDetails.length > 0"> Hey there! You don't have any published spot details yet!' </p>
+    <div class="project-container-box" *ngFor="let spot of spotDetails | OrderBy;let i= index">
+    <ion-card>
+      <!-- Commented Delete parking for now if client ask go for the logic -->
+      
+      <!-- <ion-item-sliding #slidingItem> -->
+       
+          <ion-card-header>Published spot details for {{spot.date | date}} </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-3>
+                  <p><b>Car Details</b></p>
+                </ion-col>
+                <ion-col style="padding-left: 0px;" col-9>
+                  <p>{{spot.carInfo}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-3>
+                  <p><b>Parked at</b></p>
+                </ion-col>
+                <ion-col style="padding-left: 0px;" col-9>
+                  <p>{{spot.parkLocation}}</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col style="padding-left: 0px;">
+                  <ion-row>
+                    <ion-col>
+                      <p><b>From</b></p>
+                    </ion-col>
+                    <ion-col>
+                      <p>{{spot.starttime}}</p>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <p><b>To</b></p>
+                    </ion-col>
+                    <ion-col>
+                      <p>{{spot.endtime}}</p>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+                <ion-col class="historyDetail">
+                  <button ion-button clear (click)="historyDetail(spot.publisherDetails,spot.date,spot.requesterDetails)">Details</button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        <!-- Commented Delete parking for now if client ask go for the logic -->
+
+        <!-- <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteSpot(spot,i,slidingItem)">Delete this spot</button>
+        </ion-item-options>
+      </ion-item-sliding> -->
+    </ion-card>
+  </div>
+  </ion-list>
+
+  <ion-list  *ngSwitchCase="'request'">
+      <p style="text-align: center" [hidden]="requestingUserData.length > 0"> Hey there! You don't have any requested spot details yet!' </p>
+    <div class="project-container-box" *ngFor="let requester of requestingUserData | OrderBy;let i= index">
+    <ion-card>
+      <ion-card-header>Request spot details for {{requester.requestedDate | date}} </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <p><b>Publisher name</b></p>
+            </ion-col>
+            <ion-col style="padding-left: 0px;">
+              <p>{{requester.publisherName}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <p><b>Publisher Contact Details</b></p>
+            </ion-col>
+            <ion-col style="padding-left: 0px;">
+              <p>{{requester.publisherContact}} </p>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col style="padding-left: 0px;">
+              <ion-row>
+                <ion-col col-6>
+                  <p><b>Spot Location</b></p>
+                </ion-col>
+                <ion-col>
+                  <p>{{requester.requestLocation}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6>
+                  <p><b>Requested Time</b></p>
+                </ion-col>
+                <ion-col>
+                  <p>{{requester.requestedTime}}</p>
+                </ion-col>
+              </ion-row>
+              <ng-template [ngIf]="requester.parkingFlow">
+              <ion-row>
+                <ion-col col-6>
+                  <p><b>Parking Flow</b></p>
+                </ion-col>
+                <ion-col>
+                  <p>{{requester.parkingFlow}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col col-6>
+                    <p><b>Flow Comment</b></p>
+                  </ion-col>
+                  <ion-col>
+                    <p>{{requester.parkingFlowComment}}</p>
+                  </ion-col>
+                </ion-row>
+                </ng-template>
+
+              <ion-row *ngIf="requester.status == 'Accepted' && !requester.parkingFlow" class="center-button">
+                <button ion-button round margin-top color="secondary" (click)="ClaimPoints(requester,i)">Claim Points</button>
+              </ion-row>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    <div class="project-container-status" *ngIf="requester.status == 'Accepted'">
+        <img src="assets/images/completed2x.png" alt="">
+        <!--<img src="assets/images/inprogress.png" alt="">-->
+        <!--<img src="assets/images/pending.png" alt="">-->
+    </div>
+    <div class="project-container-status" *ngIf="requester.status == 'Pending'">
+        <!--<img src="assets/images/completed.png" alt="">-->
+        <img src="assets/images/pending2x.png" alt="">
+        <!--<img src="assets/images/pending.png" alt="">-->
+    </div>
+    <div class="project-container-status" *ngIf="requester.status == 'Rejected'">
+        <!--<img src="assets/images/completed.png" alt="">-->
+        <img src="assets/images/rejected2x.png" alt="">
+        <!--<img src="assets/images/pending.png" alt="">-->
+    </div>
+    </div>
+  </ion-list>
+</ion-content>
+
+  

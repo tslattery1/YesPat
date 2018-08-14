@@ -1,0 +1,99 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+						<ion-icon name="menu"></ion-icon>
+					  </button>
+		<ion-title>
+			{{userData ? userData.bussinessName : 'Bussiness Name'}}
+		</ion-title>
+
+		<ion-buttons right (click)="openUserBarcode()">
+			<button ion-button clear>
+							<img style="height: 2rem;" src="assets/images/barcode.png">
+					</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-slides pager="true" *ngIf="slideData">
+		<ion-slide *ngFor="let image of slideData;">
+			<img src="assets/images/overlay.png" alt="" class="overlay">
+
+			<img [src]="image" alt="">
+			<div class="card-subtitle">{{userData.address}}</div>
+		</ion-slide>
+	</ion-slides>
+
+
+
+	<!-- <button (click)="scanQrCode()"> Scan QR Code</button> -->
+
+	<ion-grid>
+
+		<h4>Menu</h4>
+
+		<table>
+			<tr>
+				<th>Name of item</th>
+				<th>Price</th>
+				<th>Points</th>
+				<th></th>
+			</tr>
+			<ng-template [ngIf]="menuItem.length">
+			<tr *ngFor="let menu of menuItem; let i = index">
+				<td>{{menu.itemName}} <span style="
+					background-color: #54bc15;
+					padding: 3px 11px;
+					border-radius: 50px;
+					font-size: 10px;
+					/* float: right; */
+					margin-left: 3px;
+					color: #fff;
+				" *ngIf="menu.recent"> New</span></td>
+				<td>$ {{menu.price}}</td>
+				<td class="points">{{menu.points}}</td>
+				<td>
+					<button ion-button [color]="menu.disable ? 'secondary' : 'lightdark'" round (click)="menu.disable ? revertMenuItem(i, menu) : deleteMenuItem(i, menu)">
+							{{menu.disable ? 'Revert' : 'Delete'}}
+						  </button>
+				</td>
+			</tr>
+			</ng-template>
+			<!-- <tr>
+				<td>Cappuccino Lois</td>
+				<td>$120</td>
+				<td class="points">150</td>
+				<td>
+					<button ion-button color='lightdark' round>
+							Delete
+						  </button>
+				</td>
+			</tr> -->
+		</table>
+		<!-- <div *ngIf="!menuItem.length"> Your menu seems to be empty. Add menu using ADD button.</div> -->
+		<ion-row *ngIf="!menuItem.length">
+			<img src="assets/images/empty.png" alt="">
+			<h4>This menu list is empty</h4>	
+			<p>Add a new menu below</p>
+		</ion-row>
+		
+	</ion-grid>
+</ion-content>
+
+<ion-footer>
+	<ion-row>
+		<ion-col col-6>
+			<button ion-button round color='lightBl' (click)="publishMenuItem()">
+							SAVE
+						</button>
+		</ion-col>
+
+
+		<ion-col col-6>
+			<button ion-button round (click)="addMenuItem()">
+							ADD
+						</button>
+		</ion-col>
+	</ion-row>
+</ion-footer>

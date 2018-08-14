@@ -1,0 +1,114 @@
+page-homedetails {
+    ion-content{
+        background-color:  #ececec !important;
+    }
+     .scroll-content{
+        padding: 0 !important;
+
+        .slides{
+            height: 26rem;
+
+            .swiper-slide img{
+                width: 100%;
+                height: 26rem;
+            }
+
+            .swiper-pagination-bullet {
+                background: #fff;
+                opacity: 1;
+            }
+            .swiper-pagination-bullet-active{
+                background:#fff;
+                height:1rem;
+                width: 1rem;
+            }
+            .card-subtitle {
+                font-size: 1.6rem;
+                position: absolute;
+                bottom: 15%;
+                width: 100%;
+                color: #fff;
+            }
+         }
+
+         .grid{
+            margin-top: 0.8rem;
+            padding: 1.4rem;
+            background-color: #fff;
+         }
+         .details{
+             h6{
+                margin: 0;
+                color: rgba(0, 0, 0, 0.52);
+                font-size: 1.4rem;
+             }
+         }
+
+         .menulist{
+            h4{
+                color: rgba(0, 0, 0, 0.84);
+                font-size: 1.8rem;
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+                width: 100%;
+                text-align: left;
+                td{
+                    font-size: 1.5rem !important; 
+                }
+
+                td:first-child{
+                    max-width: 12rem;
+                }
+
+                td, th {
+                    padding: 0.5rem 0;
+                    color: rgba(0, 0, 0, 0.84);
+                    font-size: 1.2rem;
+                }
+
+                tr:first-child{
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                }
+
+                tr{
+                    th:last-child{
+                        width: 6.5rem;
+                    }
+
+                    th:nth-child(3){
+                        width: 4.5rem;
+                    }   
+
+                    .points{
+                        font-weight: bold;
+                    }
+                }
+
+                button{
+                    padding: 0 1rem;
+                    height: 2rem;
+                    font-size: 1.2rem;
+                }
+            }
+
+            .row{
+                flex-direction: column;
+                align-items: center;
+
+                img{
+                    height: 12rem;
+                    margin: 1.5rem 0;
+                }
+                h4{
+                    margin: 0;
+                }
+                p{
+
+                }
+            }
+        }
+    }
+}

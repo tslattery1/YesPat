@@ -1,0 +1,112 @@
+bussiness-signup {
+    .signUpHeader{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0px;
+        h1{
+            color: rgba(35, 31, 32, 0.8);
+            font-size: 2rem;
+        }
+    }
+    .signUpForm{
+        padding: 1.6rem 2.5rem 0px;
+        ion-list{
+            margin: 0 0 45px 0;
+            ion-item{
+                padding-top: 15px !important;
+                border-bottom: 1px solid #b7b7b7 !important;
+                img{
+                    height: 2rem;
+                    margin:0 2.5rem 0 0 !important;
+                }
+                .webimg{
+                    margin-right: 2rem !important;    
+                }
+                .item-inner{
+                    .text-input{
+                        margin: 0;
+                        color: #000;
+                    }
+                    ::placeholder {
+                        font-size: 1.5rem;
+                        color: rgba(35, 31, 32, 0.54);
+                    }
+                    .text-input[disabled] {
+                        opacity: 1;
+                        color: #000;
+                    }
+                     button{
+                        padding: 0 !important; 
+                        margin: 0;
+                        img{
+                            margin: 0 !important;
+                            width: 2rem;
+                            height: 1.8rem;
+                        }
+                    }
+                    .dropdown{
+                        padding: 0;
+                        max-width: 100%;
+                        width: 100%;
+                        .select-icon{
+                            width: 1rem;
+                            height: 2rem;
+                            .select-icon-inner{
+                                left: 0;
+                                border-top: 7px solid;
+                            }
+                        }
+                    }
+                }
+
+                .searchbar{
+                    padding: 0;
+                    height: initial;
+                    border: 0;
+                    background: transparent;
+
+                    .searchbar-search-icon{
+                        background: none !important;
+                    }
+
+                    .searchbar-input{
+                        padding-left: 0 !important;
+                    }
+                }
+            }
+        }
+        .row{
+            margin-top: 1rem;
+            .col{
+                button{
+                    position: absolute;
+                    right: -0.3rem;
+                    top: -1.5rem;
+                    padding: 0;
+                    margin: 0;   
+                    
+                    img{
+                        height: 1.5rem;
+                        background: #fff;
+                        border-radius: 50%;
+                    }
+                }
+                .pics{
+                    height: 7rem;
+                    max-height: 7rem;
+                    width: 100%;
+                }
+            }
+            .col:first-child{
+                padding-left: 0;
+            }
+            .col:nth-child(3){
+                padding-right: 0;
+            }
+            .col:nth-child(4){
+                padding-left: 0;
+            }
+        }
+    }
+}

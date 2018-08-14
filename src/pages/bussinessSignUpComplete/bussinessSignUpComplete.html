@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid class="signUpHeader">
+    <h1>COMPLETE BUSINESS SIGN UP</h1>
+  </ion-grid>
+
+  <ion-grid class="signUpForm">
+
+    <form [formGroup]="bussinessSignUpForm" novalidate>
+      <ion-list no-lines>
+        <ion-item>
+          <img src="assets/images/user.png" alt="" item-left>
+          <ion-input type="text" placeholder="Business Name" formControlName="bussinessName"></ion-input>
+        </ion-item>
+        <div *ngIf="!bussinessSignUpForm.controls.bussinessName.valid && (bussinessSignUpForm.controls.bussinessName.dirty ||bussinessSignUpForm.controls.bussinessName.touched)"
+          class="error">
+          <div [hidden]="!bussinessSignUpForm.controls.bussinessName.errors.required">
+            *Business name is required.
+          </div>
+        </div>
+
+        <ion-item>
+          <img src="assets/images/address.png" alt="" item-left class="webimg">
+          <ion-searchbar type="text" placeholder="Address" formControlName="address" [(ngModel)]="autocomplete.query" (ionInput)="updateSearch()" (ionCancel)="dismiss()"
+            required></ion-searchbar>
+        </ion-item>
+        <div *ngIf="!bussinessSignUpForm.controls.address.valid && (bussinessSignUpForm.controls.address.dirty ||bussinessSignUpForm.controls.address.touched)"
+          class="error">
+          <div [hidden]="!bussinessSignUpForm.controls.address.errors.required">
+            *Address is required.
+          </div>
+        </div>
+
+        <ion-list [hidden]="dontShowPredictions">
+          <ion-item *ngFor="let item of autocompleteItems" (click)="chooseItem(item)">
+            {{ item.description }}
+          </ion-item>
+        </ion-list>
+
+        <!-- <ion-label stacked>Desired Location</ion-label>
+					<ion-searchbar required 
+					formControlName="address" [(ngModel)]="autocomplete.query" [showCancelButton]="true" (ionInput)="updateSearch()" (ionCancel)="dismiss()"
+					placeholder="Start typing and select ...">
+				</ion-searchbar>
+
+				<div *ngIf="!bussinessSignUpForm.controls.address.valid && (bussinessSignUpForm.controls.address.dirty ||bussinessSignUpForm.controls.address.touched)" class="error">
+					<div [hidden]="!bussinessSignUpForm.controls.address.errors.required">
+						*Address is required.
+					</div>
+				</div> -->
+
+
+
+        <ion-item>
+          <img src="assets/images/phone.png" alt="" item-left>
+          <ion-input type="number" placeholder="Phone Number" formControlName="phoneNumber" required></ion-input>
+        </ion-item>
+        <div *ngIf="!bussinessSignUpForm.controls.phoneNumber.valid && (bussinessSignUpForm.controls.phoneNumber.dirty ||bussinessSignUpForm.controls.phoneNumber.touched)"
+          class="error">
+          <div [hidden]="!bussinessSignUpForm.controls.phoneNumber.errors.required">
+            *Phone number is required.
+          </div>
+          <div [hidden]="!bussinessSignUpForm.controls.phoneNumber.errors.pattern">
+            *10 digits are allowed.
+          </div>
+        </div>
+
+        <ion-item>
+          <img src="assets/images/phone.png" alt="" item-left>
+          <ion-input type="number" placeholder="Alternate Number" formControlName="alternateNumber" required></ion-input>
+        </ion-item>
+        <div *ngIf="!bussinessSignUpForm.controls.alternateNumber.valid && (bussinessSignUpForm.controls.alternateNumber.dirty || bussinessSignUpForm.controls.alternateNumber.touched)"
+          class="error">
+          <div [hidden]="!bussinessSignUpForm.controls.alternateNumber.errors.pattern">
+            *10 digits are allowed.
+          </div>
+        </div>
+
+        <ion-item>
+          <ion-icon ios="ios-mail" md="md-mail" item-left></ion-icon>
+          <ion-input type="email" placeholder="Business Email Address" formControlName="email" required></ion-input>
+        </ion-item>
+        <div *ngIf="!bussinessSignUpForm.controls.email.valid && (bussinessSignUpForm.controls.email.dirty ||bussinessSignUpForm.controls.email.touched)"
+          class="error">
+          <div [hidden]="!bussinessSignUpForm.controls.email.errors.required">
+            *Business email is required.
+          </div>
+          <div [hidden]="!bussinessSignUpForm.controls.email.errors.pattern">
+            *Email is not valid.
+          </div>
+        </div>
+
+        <ion-item>
+          <img src="assets/images/bus_type.png" alt="" item-left class="webimg">
+          <ion-label>Business Type</ion-label>
+          <ion-select class="dropdown" formControlName="bussinessType">
+            <ion-option value="Coffee">Coffee</ion-option>
+            <ion-option value="Tea">Tea</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <img src="assets/images/web.png" alt="" item-left class="webimg">
+          <ion-input type="text" placeholder="Website" formControlName="website"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <img src="assets/images/add_photo.png" alt="" item-left class="webimg">
+
+          <ion-input disabled="true" type="text" placeholder='Add your business photo'></ion-input>
+
+          <button ion-button clear item-right type="button" (click)="pickImage()" [disabled]="gallery.length == 5">
+            <img src="assets/images/camera.png" alt="">
+          </button>
+        </ion-item>
+
+        <ion-row>
+          <ion-col col-4 *ngFor='let image of gallery; let i = index'>
+            <button ion-button clear (click)="deleteImage(i)">
+              <img src="assets/images/close.png" alt="">
+            </button>
+            <img [src]="image" alt="" class="pics">
+          </ion-col>
+        </ion-row>
+
+        <button type="button" (click)="bussinessSubmit()" ion-button round block margin-top [disabled]="!bussinessSignUpForm.valid">SIGN UP AS BUSINESS</button>
+
+      </ion-list>
+    </form>
+  </ion-grid>
+
+</ion-content>

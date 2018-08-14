@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button clear (click)="logOutuser()">
+        Logout
+      </button>
+    </ion-buttons>
+    <ion-title>Subscription</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid *ngIf="subscriptionType">
+    <ng-template [ngIf]="subscriptionType == 'user'">
+      <ion-row>
+        <img src="assets/images/Standard-Icon.png" alt="">
+      </ion-row>
+  
+      <ion-row>
+        <h2>Standard</h2>
+        <h6>Get access to find and post parking spot right at your fingertips.</h6>
+      </ion-row>
+  
+      <ion-row>
+        <h1>$1.99 <span>/ per month</span></h1>
+        <p>This ammount will automatically deduct from your account every month.</p>
+      </ion-row>
+    </ng-template>
+    
+    <ng-template [ngIf]="subscriptionType == 'business'">
+      <ion-row>
+        <img src="assets/images/Business-Icon.png" alt="">
+      </ion-row>
+  
+      <ion-row>
+        <h2>Business</h2>
+        <h6>Get access to create list of redemption and expand your business like never before.</h6>
+      </ion-row>
+  
+      <ion-row>
+        <h1>$9.99 <span>/ per month</span></h1>
+        <p>This ammount will automatically deduct from your account every month.</p>
+      </ion-row>
+    </ng-template>
+
+    <ion-row>
+      <button ion-button round (click)="subscribeUser()">
+        SUBSCRIBE
+      </button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

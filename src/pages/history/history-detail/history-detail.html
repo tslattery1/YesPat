@@ -1,0 +1,160 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle icon-only (click)="dismiss()">
+        <ion-icon ios="ios-close" md="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>My Spot Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngIf="publisherDetails">
+    <p class="detailsHeader">
+      <b>Publisher Details</b>
+    </p>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <p>
+              <b>Publisher Name</b>
+            </p>
+          </ion-col>
+          <ion-col style="padding-left: 0px;">
+            <p>{{publisherDetails.name }}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>
+            <p>
+              <b> Published At</b>
+            </p>
+          </ion-col>
+          <ion-col style="padding-left: 0px;">
+            <p>{{publishedOn | date}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="padding-left: 0px;">
+            <ion-row>
+              <ion-col col-3>
+                <p>
+                  <b>Email Id</b>
+                </p>
+              </ion-col>
+              <ion-col>
+                <p>{{publisherDetails.email}}</p>
+              </ion-col>
+            </ion-row>
+
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="padding-left: 0px;">
+            <ion-row>
+              <ion-col col-3>
+                <p>
+                  <b>Contact</b>
+                </p>
+              </ion-col>
+              <ion-col>
+                <p>{{publisherDetails.phoneNumber}}</p>
+              </ion-col>
+            </ion-row>
+
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <p class="detailsHeader">
+      <b>Requester Details</b>
+    </p>
+    <p style="text-align: center" [hidden]="!showNoRequesters"> No Requesters yet </p>
+    <ion-card-content *ngFor="let requester of requestersArray">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <p>
+              <b>Requester Name</b>
+            </p>
+          </ion-col>
+          <ion-col style="padding-left: 0px;">
+            <p>{{requester.name }}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>
+            <p>
+              <b> Requested On </b>
+            </p>
+          </ion-col>
+          <ion-col style="padding-left: 0px;">
+            <p>{{requester.requestedDate | date}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>
+            <p>
+              <b> Requested Time</b>
+            </p>
+          </ion-col>
+          <ion-col style="padding-left: 0px;">
+            <p>{{requester.requestedTime}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="padding-left: 0px;">
+            <ion-row>
+              <ion-col col-3>
+                <p>
+                  <b>Email Id</b>
+                </p>
+              </ion-col>
+              <ion-col>
+                <p>{{requester.email}}</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-3>
+                <p>
+                  <b>Contact</b>
+                </p>
+              </ion-col>
+              <ion-col>
+                <p>{{requester.phoneNumber}}</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-3>
+                <p>
+                  <b>Request Status</b>
+                </p>
+              </ion-col>
+              <ion-col>
+                <p>{{requester.status}}</p>
+              </ion-col>
+            </ion-row>
+
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content>

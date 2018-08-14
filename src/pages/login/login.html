@@ -1,0 +1,43 @@
+<ion-header>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid class="mainHeader">
+    <img src="assets/images/Sign_In.png" alt="logo">
+    <!-- <h1>Parking Sharing</h1> -->
+  </ion-grid>
+
+  <ion-grid class="loginForm">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <ion-list no-lines>
+        <ion-item margin-bottom>
+          <ion-icon ios="ios-mail" md="md-mail" item-left></ion-icon>
+          <ion-input type="email" placeholder="email" name="email" ngModel required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon ios="ios-lock" md="md-lock" item-left></ion-icon>
+          <ion-input type="password" placeholder="Password" name="password" ngModel required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <p text-center>
+        <a (click)="forgotpassPage()">Forgot Password?</a>
+      </p>
+
+      <button ion-button round block margin-top [disabled]="!loginForm.valid">LOGIN</button>
+      <div *ngIf="!validLoginDetails" class="error">
+        <div style="text-align: center" [hidden]="validLoginDetails">
+          *Invalid Email / Password.
+        </div>
+      </div>
+    </form>
+  </ion-grid>
+
+  <ion-grid class="signUp">
+    <p text-center>New User?</p>
+    <button ion-button round block margin-top color="dark" (click)="gotoSignUpPage()">SIGN UP</button>
+  </ion-grid>
+
+</ion-content>
